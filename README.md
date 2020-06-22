@@ -3,11 +3,11 @@ Django based portfolio website
 
 Create 2 folders inside src folder, named media and static. 
 
-You can install the project in 2 ways - with adn withough virtual environment (I would recommend using virtual environment to separate your dependencies). 
+You can install the project in 2 ways - with and without virtual environment (I would recommend using a virtual environment to separate your dependencies). 
 
-This assumes that you're using Ubuntu Linux for the installation:
+This document assumes that you're using Ubuntu Linux for the installation:
 
-Installing the Python tools needed for the enviroment
+Installing the Python tools needed for the environment
 Open up the Terminal Application and start typing the following:
 ```
 
