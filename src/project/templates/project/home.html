@@ -1,0 +1,140 @@
+{% load static %}
+{% load mathfilters %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Your Name</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="{% static 'project/style.css' %}">
+
+  <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,400;1,300&display=swap"
+    rel="stylesheet">
+  <link rel="icon" type="image/png" href="{% static 'project/images/me.png' %}" style="width: 50px; height: 50px;">
+</head>
+
+<body>
+
+  <div id="vantajs">
+    <!-- background script-->
+    
+    <div class="content ">
+      <!-- Whole website page-->
+   
+
+
+      <!-- Picture, name and Links -->
+      <div class="header text-center pt-4">
+        <img alt="Picture of me" class="profile-picture" src="{% static 'project/images/me.png' %}"
+          style="width: 120px; height: 120px;">
+        <h1 class="title" id="name">Your name</h1>
+        <p> 
+          <a class="links myBtn_multi" id="myBtn" href="#openModal1">Email</a> • 
+          <a class="links" href="#" target="_blank">GitHub</a> •
+          <a class="links" href="#" target="_blank">LinkedIn</a><br>
+          <a class="links" href="#" target="_blank">Facebook</a> •
+          <a class="links" href="#" target="_blank">Spotify</a> •
+          <a class="links" href="#" target="_blank">LastFM</a>
+        </p>
+      </div>
+      <div class="resume container text-center mx-auto pt-2 pb1">
+        <p><img alt="404" class="image" src="{% static 'project/images/pdf.png' %}" style="width: 70px; height: 70px;">
+        <div class="middle">
+          <div><a href="{% static 'resume.pdf' %}" target="_blank" class="text">Resume</a></div>
+        </div>
+        </p>
+      </div>
+
+
+      <!-- Picture, name and Links END -->
+
+      <!-- Most recent Internship -->
+      <div class="most-recent-intern text-center mx-auto">
+        <div class=" pb-3 pt-3 mb-3 ">
+          <img alt="Medidata" class="image" src="{% static 'project/images/internship.png' %}"
+            style="width: 220px; height: 40px;margin-top: 0; padding-top: 0;"><br>
+          <h4 class="pt-3">Position of Intern</h4>
+          <h6 class="dates">When - Where</h6> <br>
+          <a type="button" href="#openModal2" class="btn btn-dark myBtn_multi">More Info</a>
+        </div>
+      </div>
+      <!-- Most recent Internship END -->
+    
+      <!-- Last three jobs before Internship-->
+      <div class="cards-jobs text-center mx-auto">
+
+        <div class="pb-3 pt-3 mb-3 last-three-jobs">
+          <img alt="Sitel logo" class="image" src="{% static 'project/images/sitel.png' %}"
+            style="width: 220px; height: 70px;margin-top: 0; padding-top: 0;"><br>
+          <h4 class="pt-3">Position of Intern</h4>
+          <h6 class="dates">When - Where</h6> <br>
+          <a type="button" href="#openModal3" class="btn btn-dark myBtn_multi">More Info</a>
+        </div>
+
+        <div class="pb-3 pt-3 mb-3 last-three-jobs">
+          <img alt="QMUL logo" class="image" src="{% static 'project/images/QMUL.png' %}"
+            style="width: 220px; height: 70px;margin-top: 0; padding-top: 0;"><br>
+          <h4 class="pt-3">Position of Intern</h4>
+          <h6 class="dates">When - Where</h6> <br>
+          <button type="button" class="btn btn-dark myBtn_multi">More Info</button>
+        </div>
+
+
+        <div class="pb-3 pt-3 mb-3 last-three-jobs">
+          <img alt="Coffee Shops logo" class="image" src="{% static 'project/images/larder.png' %}"
+            style="width: 260px; height: 70px;margin-top: 0; padding-top: 0;"><br>
+          <h4 class="pt-3">Position of Intern</h4>
+          <h6 class="dates">When - Where</h6> <br>
+          <button type="button" class="btn btn-dark myBtn_multi">More Info</button>
+        </div>
+
+      </div>
+      <!-- Last three jobs before Internship END-->
+
+      <!-- Projects -->
+      <div class="row text-center mx-auto">
+
+        {% for project in projects %}
+        {% if forloop.counter|mod:2 == 0 %}
+        <div class="col projects pb-3 pt-3 mb-3 ml-2">
+          {% else %}
+          <div class="col projects pb-3 pt-3 mb-3 mr-2">
+            {% endif %}
+
+            <img class="card-img-top pt-2 pl-2 pr-2" src="{{ project.project_image.url}}"
+              alt="Image could not be found :(" style="height:120px; width:166px !important;" /><br>
+            <div class="card-body">
+              <h3 class="card-title ">{{ project.project_name }}</h3>
+              <p class="card-text dates">{{ project.project_description}}</p>
+              <a href="{{ project.project_link }}" class="btn btn-dark" target="_blank">Link</a>
+
+            </div>
+          </div>
+
+          {% if forloop.counter|mod:2 == 0 %}
+          <div class="w-100"></div>
+          {% endif %}
+          {% endfor%}
+        </div>
+      </div>
+      <!-- Projects END-->
+
+
+      <p class="text-center mx-auto mb-0 pt-3 pb-3 ">yourName, 2020 <br>
+        <a href="#" target="_blank" class="links text-center mx-auto" >View on GitHub</a>
+      </p>
+          
+
+          {% include 'project/modals.html' %}
+          {% include 'project/footerScripts.html' %}
+         
+        </div>
+      </div>
+
+</body>
+
+</html>
