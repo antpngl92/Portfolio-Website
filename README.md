@@ -7,8 +7,7 @@ You can install the project in 2 ways - with adn withough virtual environment (I
 
 This assumes that you're using Ubuntu Linux for the installation:
 
-    Installing the Python tools needed for the enviroment
-
+Installing the Python tools needed for the enviroment
 Open up the Terminal Application and start typing the following:
 ```
 
@@ -16,13 +15,13 @@ $ sudo apt-get install python-pip python-virtualenv python-setuptools python-dev
 ```
 
 
-    Installing the virtual enviroment
+Installing the virtual enviroment
     
 ```
 $ sudo pip install virtualenv
 ```
 
-    Making the directories for the project
+Making the directories for the project
     
 ```
 $ mkdir ~/Dev
@@ -34,7 +33,7 @@ $ mkdir venv && cd venv
 $ virtualenv -p python3.6 .
 ```
 
-    Now we test if Virtual Enviroment has been installed
+Now we test if Virtual Enviroment has been installed
 
 ```
 $ cd ~/Dev/venv/
